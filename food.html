@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Website</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        section {
+            width: 100%;
+            height: 100vh;
+        }
+
+        section nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        section nav .logo img {
+            width: 100px;
+            cursor: pointer;
+            margin: 7px 0;
+        }
+
+        section nav ul {
+            list-style: none;
+        }
+
+        section nav ul li {
+            display: inline-block;
+            margin: 0 15px;
+        }
+
+        section nav ul a {
+            text-decoration: none;
+            color: black;
+            font-size: 17px;
+            font-weight: 500;
+            transition: 0.1s;
+        }
+
+        section nav ul a::after {
+            content: '';
+            width: 0;
+            height: 2px;
+            background: #fac031;
+            display: block;
+            transition: 0.2s linear;
+        }
+
+        section nav ul a:hover::after {
+            width: 100%;
+        }
+
+        section nav ul a:hover {
+            color: #fac031;
+        }
+
+        .icon {
+            display: inline-block;
+        }
+
+        .icon img {
+            width: 20px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        .icon .img1 {
+            transition: 0.3s;
+        }
+
+        .icon .img1:hover {
+            filter: invert(39%) sepia(94%) saturate(693%) hue-rotate(355deg) brightness(103%) contrast(102%);
+        }
+
+        .main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f9f9f9;
+        }
+
+        .main_text h1 {
+            font-size: 48px;
+            color: #333;
+        }
+
+        .main_text span {
+            color: #fac031;
+        }
+
+        section .main {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            position: relative;
+            margin-top: 130px;
+        }
+
+        .myh1 {
+            font-size: 60px;
+            position: relative;
+            top: -90px;
+            left: 20px;
+            margin-top: 200px;
+        }
+
+        section .main .main_text h1 span {
+            color: #fac031;
+            font-family: mv boli;
+            line-height: 22px;
+            font-size: 70px;
+        }
+
+        .main_image {
+            width: 700px;
+            position: relative;
+            left: 70px;
+        }
+
+        .main_btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fac031;
+            width: 180px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            position: relative;
+            margin: 50px auto 0;
+            cursor: pointer;
+            font-size: 20px;
+            text-align: center;
+            bottom: 300px;
+        }
+
+        section .main_btn a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .about {
+            width: 100%;
+            height: 100vh;
+            padding: 70px 0;
+        }
+
+        .about .about_main {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .about .about_main .image img {
+            width: 800px;
+            position: relative;
+            top: 60px;
+        }
+
+        .myspan {
+            color: #fac031;
+            margin-right: 15px;
+            font-family: mv boli;
+        }
+
+        .myh1 {
+            font-size: 80px;
+        }
+
+        .myh3 {
+            font-size: 30px;
+        }
+
+        .myp {
+            font-size: 20px;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 50px 0;
+            text-align: center;
+            background-color: #f9f9f9;
+        }
+
+        .gallery h1 {
+            font-size: 50px;
+            margin-bottom: 40px;
+        }
+
+        .gallery-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .gallery-item {
+            width: 30%;
+            margin: 10px;
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 300px;
+            border-radius: 10px;
+        }
+
+        .rating {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 5px 10px;
+            border-radius: 5px;
+            color: white;
+        }
+
+        .rating span {
+            color: #fac031;
+        }
+
+        .rating span.full-star::before {
+            content: '★';
+        }
+
+        .rating span.empty-star::before {
+            content: '☆';
+        }
+
+        .gallery span {
+            color: #fac031;
+            font-family: mv boli;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="HOME">
+        <nav>
+            <div class="logo">
+                <img src="https://res.cloudinary.com/dcziw4txz/image/upload/v1720328119/82bed479344270067e3d2171379949b3_wzeawe.png"
+                    alt="Logo">
+            </div>
+
+            <ul>
+                <li><a href="#HOME">HOME</a></li>
+                <li><a href="#ABOUT">ABOUT</a></li>
+                <li><a href="#MENU">MENU</a></li>
+                <li><a href="#GALLERY">GALLERY</a></li>
+                <li><a href="#REVIEW">REVIEW</a></li>
+                <li><a href="#ORDER">ORDER</a></li>
+            </ul>
+
+            <div class="icon">
+                <img class="img1"
+                    src="https://res.cloudinary.com/dcziw4txz/image/upload/v1720449692/magnifying-glass-solid_brof8p.svg"
+                    alt="Search Icon">
+                <img class="img1"
+                    src="https://res.cloudinary.com/dcziw4txz/image/upload/v1720449736/heart-solid_k35vvu.svg"
+                    alt="Heart Icon">
+                <img class="img1"
+                    src="https://res.cloudinary.com/dcziw4txz/image/upload/v1720449746/cart-shopping-solid_spg3ea.svg"
+                    alt="Cart Icon">
+            </div>
+        </nav>
+
+        <div class="main">
+            <div class="main_text">
+                <h1 class="myh1">Get Fresh <span>Food</span> <br>in an Easy Way</h1>
+            </div>
+
+            <div class="main_image">
+                <img src="https://res.cloudinary.com/dcziw4txz/image/upload/v1720453178/main_img_pfmdbj.png"
+                    alt="Main Food Image">
+            </div>
+        </div>
+
+        <div class="main_btn">
+            <a href="#">Order Now</a>
+        </div>
+    </section>
+
+    <div class="about" id="ABOUT">
+        <div class="about_main">
+            <div class="image">
+                <img src="https://res.cloudinary.com/dcziw4txz/image/upload/v1720532967/Food-Plate_deuce1.png"
+                    alt="About Image">
+            </div>
+
+            <div class="about_text">
+                <h1 class="myh1"><span class="myspan">About</span> Us</h1>
+                <h3 class="myh3">Why choose us?</h3>
+                <p class="myp">Nourishing my body with fresh greens and wholesome ingredients.</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="gallery" id="GALLERY">
+        <h1>Our<span>Gallery😋</span></h1>
+        <div class="gallery-container">
+
+            <div class="gallery-item">
+                <img src="https://res.cloudinary.com/dcziw4txz/image/upload/v1720538865/buger_wdoqrv.jpg">
+                <div class="rating">
+                    <span class="full-star"></span><span class="full-star"></span><span class="full-star"></span><span
+                        class="full-star"></span><span class="empty-star"></span>
+                    100 INR
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://res.cloudinary.com/dcziw4txz/image/upload/v1720190309/aibatqwni1nfuw96ve6l.jpg">
+
+                <div class="rating">
+                    <span class="full-star"></span><span class="full-star"></span><span class="full-star"></span><span
+                        class="full-star"></span><span class="empty-star"></span>
+                    90 INR
+                </div>
+
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://res.cloudinary.com/dcziw4txz/image/upload/v1720189830/usbpjbaqa8at6nuddevp.jpg">
+
+                <div class="rating">
+                    <span class="full-star"></span><span class="full-star"></span><span class="full-star"></span><span
+                        class="full-star"></span><span class="empty-star"></span>
+                    150 INR
+                    
+                </div>
+
+            </div>
